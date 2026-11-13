@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('projects', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->tinyText('name');
             $table->text('description');
@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('github_url')->nullable();
             $table->boolean('is_featured')->default(false);
             $table->timestamps();
-            //
         });
     }
 
@@ -28,8 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('projects', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('projects');
     }
 };
