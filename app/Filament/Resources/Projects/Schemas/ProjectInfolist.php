@@ -29,6 +29,7 @@ class ProjectInfolist
                     ->dateTime()
                     ->placeholder('-'),
                 ImageEntry::make('image_url')
+                    ->disk('s3')
                     ->placeholder('-'),
             ]);
     }

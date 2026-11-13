@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\Projects\Schemas;
 
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
@@ -26,7 +26,10 @@ class ProjectForm
                 Toggle::make('is_featured')
                     ->required(),
                 FileUpload::make('image_url')
-                    ->image(),
+                    ->image()
+                    ->disk('s3')
+                    ->directory('projects')
+                    ->visibility('private'),
             ]);
     }
 }

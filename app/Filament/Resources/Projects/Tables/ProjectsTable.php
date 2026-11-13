@@ -33,7 +33,8 @@ class ProjectsTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                ImageColumn::make('image_url'),
+                ImageColumn::make('image_url')
+                    ->disk('s3'),
             ])
             ->filters([
                 //
