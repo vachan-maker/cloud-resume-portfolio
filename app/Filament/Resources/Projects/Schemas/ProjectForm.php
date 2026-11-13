@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\Projects\Schemas;
 
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
@@ -23,13 +23,12 @@ class ProjectForm
                     ->url(),
                 TextInput::make('github_url')
                     ->url(),
-                Toggle::make('is_featured')
+                Toggle::make('is_active')
                     ->required(),
                 FileUpload::make('image_url')
-                    ->image()
-                    ->disk('s3')
-                    ->directory('projects')
-                    ->visibility('private'),
+                    ->image(),
+                Toggle::make('is_featured')
+                    ->required(),
             ]);
     }
 }

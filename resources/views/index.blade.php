@@ -51,6 +51,39 @@
     </header>
 
     <main class="container" id="portfolio">
+        <h2>Featured Projects</h2>
+        <div class="portfolio-grid">
+        @forelse ($featuredProjects as $featured)
+            <article>
+                <header>
+                    <h3>{{ $featured->name }}</h3>
+                </header>
+
+                @if ($imageUrl = $featured->imageTemporaryUrl())
+                    <img src="{{ $imageUrl }}" alt="Screenshot of {{ $featured->name }}" loading="lazy">
+                @endif
+
+                <p>{{ $featured->description }}</p>
+
+                <footer>
+                    @if ($featured->live_url)
+                        <a href="{{ $featured->live_url }}" role="button" target="_blank" rel="noopener noreferrer">
+                            Live site
+                        </a>
+                    @endif
+
+                    @if ($featured->github_url)
+                        <a href="{{ $featured->github_url }}" role="button" class="secondary" target="_blank"
+                            rel="noopener noreferrer">
+                            GitHub
+                        </a>
+                    @endif
+                </footer>
+            </article>
+        @empty
+            <p>No projects yet.</p>
+        @endforelse
+        </div>
         <h2>Portfolio</h2>
 
         <div class="portfolio-grid">

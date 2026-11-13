@@ -13,9 +13,11 @@ class ProjectController extends Controller
             ->orderByDesc('is_featured')
             ->latest()
             ->get();
+        $featuredProjects = Project::query()->where('is_featured',true)->get();
 
         return view('index', [
             'projects' => $projects,
+            'featuredProjects' => $featuredProjects
         ]);
     }
 }
