@@ -23,7 +23,7 @@ class ProjectsTable
                     ->searchable(),
                 TextColumn::make('github_url')
                     ->searchable(),
-                IconColumn::make('is_featured')
+                IconColumn::make('is_active')
                     ->boolean(),
                 TextColumn::make('created_at')
                     ->dateTime()
@@ -33,8 +33,9 @@ class ProjectsTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                ImageColumn::make('image_url')
-                    ->disk('s3'),
+                ImageColumn::make('image_url'),
+                IconColumn::make('is_featured')
+                    ->boolean(),
             ])
             ->filters([
                 //

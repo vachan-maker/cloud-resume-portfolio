@@ -20,7 +20,7 @@ class ProjectInfolist
                     ->placeholder('-'),
                 TextEntry::make('github_url')
                     ->placeholder('-'),
-                IconEntry::make('is_featured')
+                IconEntry::make('is_active')
                     ->boolean(),
                 TextEntry::make('created_at')
                     ->dateTime()
@@ -29,8 +29,9 @@ class ProjectInfolist
                     ->dateTime()
                     ->placeholder('-'),
                 ImageEntry::make('image_url')
-                    ->disk('s3')
                     ->placeholder('-'),
+                IconEntry::make('is_featured')
+                    ->boolean(),
             ]);
     }
 }

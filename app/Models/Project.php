@@ -13,6 +13,7 @@ class Project extends Model
         'live_url',
         'github_url',
         'is_featured',
+        'is_active',
         'image_url',
     ];
 
